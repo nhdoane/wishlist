@@ -1,0 +1,12 @@
+wish-container {
+  display: flex;
+  border: 2px solid black;
+}
+wish-child-item {
+  flex: 1;
+}
+wish-delete-button {
+  flex: 1;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
