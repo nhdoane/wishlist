@@ -1,0 +1,16 @@
+<div class="new-wish" style="display: flex; align-items: center; width: 50%">
+  <forge-field
+    style="padding: 0.5rem 1rem; width: 100%"
+    floatLabel="{{ newWishText === '' ? false : true }}"
+  >
+    <label for="wish">Wish</label>
+    <input id="wish" name="wish" type="text" [(ngModel)]="newWishText" />
+  </forge-field>
+  <forge-button
+    style="padding-right: 1rem"
+    type="submit"
+    variant="filled"
+    (click)="$event.preventDefault(); addNewWish()"
+    >Add wish</forge-button
+  >
+</div>

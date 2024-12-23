@@ -1,0 +1,11 @@
+<forge-select
+  label="Filter"
+  density="small"
+  style="padding-inline: 1rem; width: 15%"
+  [(ngModel)]="listFilter"
+  (ngModelChange)="changeFilter($event)"
+>
+  <forge-option value="0">All</forge-option>
+  <forge-option value="1">Unfulfilled</forge-option>
+  <forge-option value="2">Fulfilled</forge-option>
+</forge-select>

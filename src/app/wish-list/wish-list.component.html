@@ -1,1 +1,53 @@
-<p>wish-list works!</p>
+@for (wish of wishes(); track $index) {
+<ul style="padding-inline: 0.2rem 0.4rem; cursor: pointer">
+  <div
+    #wishItemContainer
+    style="display: flex"
+    (mouseover)="
+      wishDeleteIcon.nativeElement.hidden = false;
+      wishEditIcon.nativeElement.hidden = false
+    "
+    (mouseout)="
+      wishDeleteIcon.nativeElement.hidden = true;
+      wishEditIcon.nativeElement.hidden = true
+    "
+  >
+    <forge-checkbox
+      #wishItemCore
+      style="flex: 1; align-content: center"
+      [checked]="wish.isComplete"
+      (click)="setIsComplete(wish)"
+      >{{ wish.wishText }}
+    </forge-checkbox>
+    <forge-icon-button
+      #wishEditIcon
+      hidden="true"
+      density="medium"
+      style="align-items: center"
+    >
+      <forge-icon external name="edit" />
+    </forge-icon-button>
+    <forge-icon-button
+      #wishDeleteIcon
+      theme="error"
+      hidden="true"
+      density="medium"
+      style="align-items: center"
+      (click)="deleteWish(wish)"
+    >
+      <forge-icon external external name="delete"></forge-icon>
+    </forge-icon-button>
+  </div>
+  <div>
+    <forge-divider />
+  </div>
+</ul>
+
+}@empty {
+<div style="padding: 1rem">
+  <label style="padding-inline: 1rem"
+    >Looks like there are no wishes here!</label
+  >
+  <forge-divider />
+</div>
+}
